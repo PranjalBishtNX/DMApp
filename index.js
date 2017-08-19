@@ -2,9 +2,8 @@ var express = require('express')
 , app = express()
 , server = require('http').createServer(app)
 , io = require("socket.io").listen(server)
-//... more config and code
-app.set('port', process.env.OPENSHIFT_NODEJS_PORT || 3000);  
-app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");  
+//app.set('port', process.env.PORT || 3000);  
+//app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");  
 //... code to continue
 
 app.get('/', function(req, res){
@@ -17,6 +16,6 @@ io.on('connection', function(socket){
   });
 });
 
-server.listen(port, function(){
+server.listen(process.env.PORT || 3000, function(){
   console.log('listening on *:' + port);
 });
