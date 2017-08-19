@@ -13,6 +13,7 @@ app.get('/', function(req, res){
 io.on('connection', function(socket){
     console.log('Client connected');
     socket.broadcast.emit('chat message', 'Someone connected.');
+    socket.emit('chat message', 'You are connected.');
     
     socket.on('disconnect', function(){
         console.log('Client disconnected');
