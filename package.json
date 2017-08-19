@@ -1,7 +1,7 @@
 {
-  "name": "LearnJS",
+  "name": "DMApp",
   "version": "0.0.1",
-  "description": "my first socket.io app",
+  "description": "DM APP - DM Online",
   "dependencies": {
     "express": "4.15.4",
     "socket.io": "1.7.4"
