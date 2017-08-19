@@ -17,7 +17,8 @@ io.on('connection', function(socket){
     
     socket.on('disconnect', function(){
         console.log('Client disconnected');
-        io.emit('chat message', 'Someone disconnected.');
+        socket.broadcast.emit('chat message', 'Someone disconnected.');
+        socket.emit('chat message', 'You disconnected.');
     });
     
     socket.on('chat message', function(msg){
