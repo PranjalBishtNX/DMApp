@@ -10,8 +10,8 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/lobby/lobby.html', function(req, res){
-  res.sendFile(__dirname + 'lobby/lobby.html');
+app.get('/sinnan', function(req, res){
+  res.end('Hi there!');
 });
 
 io.on('connection', function(socket){
