@@ -10,7 +10,7 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/host/host.html', function(req, res){
+app.get('/lobby/lobby.html', function(req, res){
   res.sendFile(__dirname + 'lobby/lobby.html');
 });
 
