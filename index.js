@@ -6,7 +6,9 @@ var express = require('express')
 //app.set('port', process.env.PORT || 3000);  
 //app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");  
 //... code to continue
-app.use('/style', express.static(__dirname + '/style'));
+app.use('/style', express.static(__dirname + 'resources/style'));
+app.use('/images', express.static(__dirname + 'resources/images'));
+app.use('/scripts', express.static(__dirname + 'resources/scripts'));
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
