@@ -10,8 +10,13 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
-app.get('/Sinnan', function(req, res){
-  //res.end('Hi there!::'+__dirname);
+app.get('/login', function(req, res){
+  //login controllers go here
+  //trust me it will make sense in a few days
+});
+
+app.get('/lobby', function(req, res){
+  //lobby controllers may check session before the reponse header is sent
   res.sendFile(__dirname + '/lobby/lobby.html');
 });
 
