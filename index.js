@@ -10,6 +10,10 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/host/host.html', function(req, res){
+  res.sendFile(__dirname + '/index.html');
+});
+
 io.on('connection', function(socket){
     console.log('Client connected');
     socket.broadcast.emit('chat message', 'Someone connected.');
