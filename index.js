@@ -10,7 +10,7 @@ var express = require('express')
   res.sendFile(__dirname + '/index.html');
 });
 */
-app.get('/', function(req, res){
+app.get('/Sinnan', function(req, res){
   //res.end('Hi there!::'+__dirname);
   res.sendFile(__dirname + '/lobby/lobby.html');
 });
