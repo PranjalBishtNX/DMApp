@@ -11,7 +11,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/host/host.html', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + 'lobby/lobby.html');
 });
 
 io.on('connection', function(socket){
