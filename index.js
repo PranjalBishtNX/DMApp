@@ -2,9 +2,11 @@ var express = require('express')
 , app = express()
 , server = require('http').createServer(app)
 , io = require("socket.io").listen(server)
+
 //app.set('port', process.env.PORT || 3000);  
 //app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");  
 //... code to continue
+app.use('/style', express.static(__dirname + '/style'));
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
