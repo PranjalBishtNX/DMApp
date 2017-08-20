@@ -6,11 +6,11 @@ var express = require('express')
 //app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");  
 //... code to continue
 
-app.get('/', function(req, res){
+/*app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
-
-app.get('/sinnan', function(req, res){
+*/
+app.get('/', function(req, res){
   res.end('Hi there!');
 });
 
