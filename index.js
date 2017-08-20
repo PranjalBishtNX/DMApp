@@ -11,8 +11,8 @@ var express = require('express')
 });
 */
 app.get('/', function(req, res){
-  res.end('Hi there!::'+__dirname);
-  //res.sendFile(__dirname + 'lobby/lobby.html');
+  //res.end('Hi there!::'+__dirname);
+  res.sendFile(__dirname + 'lobby/lobby.html');
 });
 
 io.on('connection', function(socket){
