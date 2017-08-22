@@ -6,10 +6,10 @@ var express = require('express')
 //app.set('port', process.env.PORT || 3000);  
 //app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");  
 //... code to continue
-app.use('/style', express.static(__dirname + '/style'));
-app.use('/duel-files', express.static(__dirname+'/duel/duel-files'));
+app.use('/views', express.static(__dirname + '/views'));
+
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/index.html');
+    res.sendFile(__dirname + '/views/index.html');
 });
 
 app.get('/login', function (req, res) {
@@ -20,19 +20,19 @@ app.get('/login', function (req, res) {
 
 app.get('/lobby', function (req, res) {
     //lobby controllers may check session before the reponse header is sent
-    res.sendFile(__dirname + '/lobby/lobby.html');
+    res.sendFile(__dirname + '/views/lobby.html');
 });
 
 app.get('/decks', function (req, res) {
-    res.sendFile(__dirname + '/decks/decks.html');
+    res.sendFile(__dirname + '/views/decks.html');
 });
 
 app.get('/stats', function (req, res) {
-    res.sendFile(__dirname + '/stats/stats.html');
+    res.sendFile(__dirname + '/views/stats.html');
 });
 
 app.get('/duel', function (req, res) {
-    res.sendFile(__dirname + '/duel/duel.html');
+    res.sendFile(__dirname + '/views/duel.html');
 });
 
 io.on('connection', function (socket) {
