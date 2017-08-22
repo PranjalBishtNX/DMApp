@@ -22,6 +22,16 @@ app.get('/lobby', function (req, res) {
     res.sendFile(__dirname + '/lobby/lobby.html');
 });
 
+app.get('/decks', function (req, res) {
+    //lobby controllers may check session before the reponse header is sent
+    res.sendFile(__dirname + '/decks/decks.html');
+});
+
+app.get('/stats', function (req, res) {
+    //lobby controllers may check session before the reponse header is sent
+    res.sendFile(__dirname + '/stats/stats.html');
+});
+
 io.on('connection', function (socket) {
     console.log('Client connected');
     socket.broadcast.emit('chat message', 'Someone connected.');
