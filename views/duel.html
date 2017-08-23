@@ -43,7 +43,14 @@
         </script>
     </head>
     <body>
+        
+        <div id="chat"> chat <br/>sinnan khowaja dil mein samaja 
+         <!--<div id="pause" onclick="send_pause()">Pause</div>
+            <div id="forfiet" onclick="send_win()">Forfeit</div>-->
+        </div>
         <div class="game">
+            <div id="leftBar">Hand and other stuff/tabs </div>
+            
             <div id="opponentField">
                 <div class="draggable1" class="ui-widget-content">
                 </div>
@@ -55,6 +62,10 @@
                 </div>
                 <div class="draggable1" class="ui-widget-content">
                 </div>
+              
+                <div id = "opponent_mana" class="mana_zone"></div>
+                <div id = "opponent_shields" class="shield_zone"></div>
+                <div id= "opponent_bz" class ="battle_zone"></div>
             </div>
             <div id="selfField">
                 <div class="draggable" class="ui-widget-content">
@@ -66,14 +77,15 @@
                 <div class="draggable" class="ui-widget-content">
                 </div>
                 <div class="draggable" class="ui-widget-content">
-                </div>
-                <div id="pause" onclick="send_pause()">Pause</div>
-                <div id="forfiet" onclick="send_win()">Forfeit</div>
+                </div>     
+                <div id= "my_bz" class ="battle_zone"></div>
+                <div id ="my_shields" class="shield_zone"></div>
+                <div id ="my_mana" class="mana_zone"></div>
             </div>
+        
+           
         </div>
-        <div id="box"> sinnan khowaja dil mein samaja </div>
-        <div id="chat_box">
-            <input type="text" id="chat"></input>
-        </div>
+      
+       
     </body>
 </html>
