@@ -8,12 +8,7 @@ table {
 .ui-draggable, .ui-droppable {
     background-position: top;
 }
-#chat_box {       
-    margin-left: -1px;
-    width: 100%;
-    height: 5vh;
-    float: left;
-}
+
 #box {
     opacity: 0.7;
     z-index: 1000;
@@ -23,17 +18,6 @@ table {
     margin-top: -150px;
     float: left;
     display: none;
-    background-color: #FFFFFF;
-}
-#pause,#forfiet {
-    height: 40px;
-    width: 100px;
-    background-color: #FFF000;
-    float: right;
-    margin: 0;
-    padding: 0;
-}
-#pause:hover,#forfiet:hover {
     background-color: #FFFFFF;
 }
 #chat {
@@ -88,22 +72,71 @@ table {
     background-color: #ebffeb;
     margin: 2px;
 }
-.shield_zone {
+
+.SDGH {
     height: 30%;
-    background-color: #ebedff;
+    background-color: #000000;
     margin: 2px;
 }
+.col {
+    float: left;
+    position: relative;
+    background: #f2f2f2;
+    width: 20%;
+    outline:2px solid  #808080;
+    outline-offset:-2;
+    height: 100%;
+}
+
+.shield_zone {
+    width: 73%;
+    background-color: #ebedff;
+  
+}
+#my_deck { 
+    width: 9%;
+    background-color: #ebedff;
+ 
+}
+#my_grave {
+    width: 9%;
+    background-color: #ebedff;
+  
+}
+#my_hsp {
+    width: 9%;
+    background-color: #ebedff;
+    
+}
+
+#opponent_deck { 
+    width: 9%;
+    background-color: #ebedff;
+ 
+}
+#opponent_grave {
+    width: 9%;
+    background-color: #ebedff;
+  
+}
+#opponent_hsp {
+    width: 9%;
+    background-color: #ebedff;
+    
+}
 .draggable1,.draggable { 
-    width: 50px;
-    height: 70px;
+    width: 8.5vh;
+    height: 12vh;
     background-color: #00FF00;
     float: left;
+    z-index: 998;
     content: url(/views/images/cardback.jpg);
     /* CHANGE this if you change folder structure. */
 }
 .draggable1:hover,.draggable:hover {
-    width: 55px;
-    height: 77px;
+   /* width: 10vh;
+    height: 14vh; */
     background-color: #FFFF00;
-    z-index: 999;
+    z-index: 998;
+    cursor: move;
 }

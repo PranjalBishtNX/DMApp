@@ -43,49 +43,62 @@
         </script>
     </head>
     <body>
-        
-        <div id="chat"> chat <br/>sinnan khowaja dil mein samaja 
-         <!--<div id="pause" onclick="send_pause()">Pause</div>
-            <div id="forfiet" onclick="send_win()">Forfeit</div>-->
+
+        <div id="chat"> chat <br/>chat message 1 
+            <!--<div id="pause" onclick="send_pause()">Pause</div>
+               <div id="forfiet" onclick="send_win()">Forfeit</div>-->
         </div>
         <div class="game">
             <div id="leftBar">Hand and other stuff/tabs </div>
-            
+
             <div id="opponentField">
-                <div class="draggable1" class="ui-widget-content">
+                <div class="draggable1 ui-widget-content">
                 </div>
-                <div class="draggable1" class="ui-widget-content">
+                <div class="draggable1 ui-widget-content">
                 </div>
-                <div class="draggable1" class="ui-widget-content">
+                <div class="draggable1 ui-widget-content">
                 </div>
-                <div class="draggable1" class="ui-widget-content">
+                <div class="draggable1 ui-widget-content">
                 </div>
-                <div class="draggable1" class="ui-widget-content">
+                <div class="draggable1 ui-widget-content">
                 </div>
-              
+
                 <div id = "opponent_mana" class="mana_zone"></div>
-                <div id = "opponent_shields" class="shield_zone"></div>
+                <div id="opponent_SDGH" class="SDGH">
+                    <div id="opponent_hsp" class="col">hsp</div>
+                    <div id="opponent_grave" class="col">grave</div>
+                    <div id="opponent_deck" class="col">deck</div>
+                    <div id="opponent_shields" class="shield_zone col">shields</div>
+
+                </div>              
                 <div id= "opponent_bz" class ="battle_zone"></div>
             </div>
             <div id="selfField">
-                <div class="draggable" class="ui-widget-content">
+                <div class="draggable ui-widget-content">
                 </div>
-                <div class="draggable" class="ui-widget-content">
+                <div class="draggable ui-widget-content">
                 </div>
-                <div class="draggable" class="ui-widget-content">
+                <div class="draggable ui-widget-content">
                 </div>
-                <div class="draggable" class="ui-widget-content">
+                <div class="draggable ui-widget-content">
                 </div>
-                <div class="draggable" class="ui-widget-content">
+                <div class="draggable ui-widget-content">
                 </div>     
                 <div id= "my_bz" class ="battle_zone"></div>
-                <div id ="my_shields" class="shield_zone"></div>
+
+                <div id="my_SDGH" class="SDGH">
+                    <div id ="my_shields" class="shield_zone col">my shields</div>
+                    <div id="my_deck" class="col">my deck</div>
+                    <div id="my_grave" class="col">my grave</div>
+                    <div id="my_hsp" class="col">my hsp</div>
+                </div>
+
                 <div id ="my_mana" class="mana_zone"></div>
             </div>
-        
-           
+
+
         </div>
-      
-       
+
+
     </body>
 </html>
