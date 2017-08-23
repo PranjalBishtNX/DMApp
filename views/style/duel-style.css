@@ -1,53 +1,40 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
     background-color: #808080;
+    margin: 1px 1px 1px 1px;
 }
-table {
-    font-size: 1em;
-}
+
 .ui-draggable, .ui-droppable {
     background-position: top;
 }
 
-#box {
-    opacity: 0.7;
-    z-index: 1000;
-    height: 150px;
-    width: 100%;
-    margin-left: -1px;
-    margin-top: -150px;
-    float: left;
-    display: none;
-    background-color: #FFFFFF;
-}
 #chat {
     border: none;
     margin: 0;
     padding: 0;
     width: 18%;
-    height: 98vh;
-    outline: none;
+    height: 99.5vh;
     background-color: #FFFFFF;
     float: right;
+    outline:1px solid  #808080;
+    outline-offset: -1px;
 }
 .game {
-    margin-top: 0px;
-    margin-left: 0px;
-    padding: 0;
+
     width: 82%;
-    height: 98vh;
-    overflow: hidden;
+    height: 99.5vh;
+    overflow: auto;
     float: left;
 }
 #leftBar {
     border: none;
-    margin: 0;
-    padding: 0;
     width: 25%;
-    height: 98vh;
-    outline: none;
+    height: 100%;
     background-color: #FFFFFF;
     float: left;
+    outline:1px solid  #808080;
+    outline-offset: -1px;
 }
 #opponentField {
     width: 75%;
@@ -65,36 +52,44 @@ table {
 .battle_zone {
     height: 40%;
     background-color: #fff0f0;
-    margin: 2px;
+
+    outline:1px solid  #808080;
+    outline-offset: -1px;
 }
 .mana_zone {
-    
+
     height: 30%;
     background-color: #ebffeb;
-    margin: 2px;
     white-space: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
+
+    outline:1px solid  #808080;
+    outline-offset:-1px;
 }
 .mana_card {
     display: inline-block;
     white-space: normal;
     width: 8vh;
     height: 11vh;
-    content: url(/views/images/cardback.jpg);
+    background: url(/views/images/cardback.jpg);
+    background-size: cover;
     margin: 0.5vh 1vh 0 1vh;
+
+    outline:1px solid  #808080;
+    outline-offset:-1px;
 }
 .SDGH {
     height: 30%;
     background-color: #000000;
-    margin: 2px;
 }
 .col {
     float: left;
     position: relative;
     background: #000000;
     width: 20%;
-    outline:2px solid  #808080;
-    outline-offset:-2;
+    outline:1px solid  #808080;
+    outline-offset:-1px;
     height: 100%;
 }
 .shield_zone {
@@ -139,7 +134,9 @@ table {
     background-color: #00FF00;
     float: left;
     z-index: 998;
-    content: url(/views/images/cardback.jpg);
+    content: '';
+    background: url(/views/images/cardback.jpg);
+    background-size: cover;
     /* CHANGE this if you change folder structure. */
 }
 .draggable1:hover,.draggable:hover {
