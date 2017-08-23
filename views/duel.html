@@ -12,33 +12,33 @@
         <script src="/views/scripts/duel-jquery-ui.js"></script>
         <script>
             $(function () {
-            /*$(".draggable1").draggable({ 
-            containment: "#opponentField",
-            scroll: false,
-            cursor: "move",
-            cursorAt: { top: 25, left: 15 }
-            });
-            */
-            $(".draggable").draggable({
-            containment: "#selfField",
-            scroll: false,
-            cursor: "move",
-            cursorAt: {top: 25, left: 15}
-            });
-            /*
-            $("#chat").on('keyup', function (e) {
-            if (e.keyCode == 13)
-            {
-            send_message(text);
-            }
-            });
-            $("#chat").focusin(function () {
-            $("#box").show("blind", "down");
-            });
-            $("#chat").focusout(function () {
-            $("#box").hide("blind", "up");
-            });
-            */
+                /*$(".draggable1").draggable({ 
+                 containment: "#opponentField",
+                 scroll: false,
+                 cursor: "move",
+                 cursorAt: { top: 25, left: 15 }
+                 });
+                 */
+                $(".draggable").draggable({
+                    containment: "#selfField",
+                    scroll: false,
+                    cursor: "move",
+                    cursorAt: {top: 25, left: 15}
+                });
+                /*
+                 $("#chat").on('keyup', function (e) {
+                 if (e.keyCode == 13)
+                 {
+                 send_message(text);
+                 }
+                 });
+                 $("#chat").focusin(function () {
+                 $("#box").show("blind", "down");
+                 });
+                 $("#chat").focusout(function () {
+                 $("#box").hide("blind", "up");
+                 });
+                 */
             });
         </script>
     </head>
@@ -52,18 +52,18 @@
             <div id="leftBar">Hand and other stuff/tabs </div>
 
             <div id="opponentField">
-                <div class="draggable1 ui-widget-content">
-                </div>
-                <div class="draggable1 ui-widget-content">
-                </div>
-                <div class="draggable1 ui-widget-content">
-                </div>
-                <div class="draggable1 ui-widget-content">
-                </div>
-                <div class="draggable1 ui-widget-content">
-                </div>
 
-                <div id = "opponent_mana" class="mana_zone"></div>
+                <div id = "opponent_mana" class="mana_zone">  <div class="draggable1 ui-widget-content">
+                    </div>
+                    <div class="draggable1 ui-widget-content">
+                    </div>
+                    <div class="draggable1 ui-widget-content">
+                    </div>
+                    <div class="draggable1 ui-widget-content">
+                    </div>
+                    <div class="draggable1 ui-widget-content">
+                    </div>
+                </div>
                 <div id="opponent_SDGH" class="SDGH">
                     <div id="opponent_hsp" class="col">hsp</div>
                     <div id="opponent_grave" class="col">grave</div>
@@ -93,11 +93,27 @@
                     <div id="my_hsp" class="col">my hsp</div>
                 </div>
 
-                <div id ="my_mana" class="mana_zone"></div>
+                <div id ="my_mana" class="mana_zone">
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+                    <div class="mana_card"></div>
+
+
+                </div>
+
+
             </div>
-
-
-        </div>
 
 
     </body>

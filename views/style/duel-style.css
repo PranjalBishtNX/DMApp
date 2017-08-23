@@ -68,11 +68,21 @@ table {
     margin: 2px;
 }
 .mana_zone {
+    
     height: 30%;
     background-color: #ebffeb;
     margin: 2px;
+    white-space: nowrap;
+    overflow-x: auto;
 }
-
+.mana_card {
+    display: inline-block;
+    white-space: normal;
+    width: 8vh;
+    height: 11vh;
+    content: url(/views/images/cardback.jpg);
+    margin: 0.5vh 1vh 0 1vh;
+}
 .SDGH {
     height: 30%;
     background-color: #000000;
@@ -81,48 +91,47 @@ table {
 .col {
     float: left;
     position: relative;
-    background: #f2f2f2;
+    background: #000000;
     width: 20%;
     outline:2px solid  #808080;
     outline-offset:-2;
     height: 100%;
 }
-
 .shield_zone {
     width: 73%;
     background-color: #ebedff;
-  
+
 }
 #my_deck { 
     width: 9%;
     background-color: #ebedff;
- 
+
 }
 #my_grave {
     width: 9%;
     background-color: #ebedff;
-  
+
 }
 #my_hsp {
     width: 9%;
     background-color: #ebedff;
-    
+
 }
 
 #opponent_deck { 
     width: 9%;
     background-color: #ebedff;
- 
+
 }
 #opponent_grave {
     width: 9%;
     background-color: #ebedff;
-  
+
 }
 #opponent_hsp {
     width: 9%;
     background-color: #ebedff;
-    
+
 }
 .draggable1,.draggable { 
     width: 8.5vh;
@@ -134,8 +143,8 @@ table {
     /* CHANGE this if you change folder structure. */
 }
 .draggable1:hover,.draggable:hover {
-   /* width: 10vh;
-    height: 14vh; */
+    /* width: 10vh;
+     height: 14vh; */
     background-color: #FFFF00;
     z-index: 998;
     cursor: move;
