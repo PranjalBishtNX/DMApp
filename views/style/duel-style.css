@@ -50,11 +50,59 @@ body {
 
 }
 .battle_zone {
-    height: 40%;
+    height: 42%;
     background-color: #fff0f0;
 
     outline:1px solid  #808080;
     outline-offset: -1px;
+}
+.SDGH {
+    height: 28%;
+    background-color: #000000;
+}
+.col {
+    float: left;
+    position: relative;
+    background: #000000;
+    width: 20%;
+    outline:1px solid  #808080;
+    outline-offset:-1px;
+    height: 100%;
+}
+.shield_zone {
+    width: 73%;
+    background-color: #ebedff;
+
+}
+#my_deck { 
+    width: 9%;
+    background-color: #ebedff;
+
+}
+#my_grave {
+    width: 9%;
+    background-color: #ebedff;
+
+}
+#my_hsp {
+    width: 9%;
+    background-color: #ebedff;
+
+}
+#opponent_deck { 
+    width: 9%;
+    background-color: #ebedff;
+
+}
+#opponent_grave {
+    width: 9%;
+    background-color: #ebedff;
+
+}
+#opponent_hsp {
+    width: 9%;
+    background-color: #ebedff;
+
 }
 .mana_zone {
 
@@ -100,55 +148,6 @@ body {
     transform:rotateX(180deg);
     -ms-transform:rotateX(180deg); /* IE 9 */
     -webkit-transform:rotateX(180deg); /* Safari and Chrome */
-}
-.SDGH {
-    height: 30%;
-    background-color: #000000;
-}
-.col {
-    float: left;
-    position: relative;
-    background: #000000;
-    width: 20%;
-    outline:1px solid  #808080;
-    outline-offset:-1px;
-    height: 100%;
-}
-.shield_zone {
-    width: 73%;
-    background-color: #ebedff;
-
-}
-#my_deck { 
-    width: 9%;
-    background-color: #ebedff;
-
-}
-#my_grave {
-    width: 9%;
-    background-color: #ebedff;
-
-}
-#my_hsp {
-    width: 9%;
-    background-color: #ebedff;
-
-}
-
-#opponent_deck { 
-    width: 9%;
-    background-color: #ebedff;
-
-}
-#opponent_grave {
-    width: 9%;
-    background-color: #ebedff;
-
-}
-#opponent_hsp {
-    width: 9%;
-    background-color: #ebedff;
-
 }
 .draggable1,.draggable { 
     width: 8.5vh;
