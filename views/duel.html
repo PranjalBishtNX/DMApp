@@ -5,129 +5,46 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Duel Room</title>
         <!-- Change these css locations if you change the folder structure -->
-        <link rel="stylesheet" href="views/styles/duel-jquery-ui.css">
-        <link rel="stylesheet" href="views/styles/duel-style.css">
-                      
-        <style>
-            #box
-            {
-                opacity: 0.7;
-                z-index: 1000;
-                height: 150px;
-                width: 100%;
-                margin-left: -1px;
-                margin-top: -150px;
-                float: left;
-                display: none;
-                background-color: #F0F0F0;
-            }
-            #pause,#forfiet
-            {
-                height: 40px;
-                width: 100px;
-                background-color: #000000;
-                float: right;
-                margin: 0;
-                padding: 0;
-            }
-            #pause:hover,#forfiet:hover
-            {
-                background-color: #FFFFFF;
-            }
-            #chat
-            {
-                border: none;
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                height: 100%;
-                outline: none;
-                background-color: #FF00FF;
+        <link rel="stylesheet" type = "text/css" href="/views/style/duel-jquery-ui.css">
+        <link rel="stylesheet" type = "text/css" href="/views/style/duel-style.css">
 
-            }
-            .game
-            {
-                margin-top: -8px;
-                margin-left: -1px;
-                padding: 0;
-                width: 100%;
-                height: 95vh;
-                overflow: hidden;
-                float: left;
-            }
-            #opponent
-            {
-                width: 100%;
-                height: 50%;
-                background-color: #FF0000;
-            }
-            #self
-            {
-                width: 100%;
-                height: 50%;
-                background-color: #0000FF;
-            }
-            #chat_box
-            {       
-                margin-left: -1px;
-                width: 100%;
-                height: 5vh;
-                float: left;
-            }
-            .draggable1,.draggable
-            { 
-                width: 50px;
-                height: 70px;
-                background-color: #00FF00;
-                float: left;
-                content: url(/views/images/cardback.jpg);
-                /* CHANGE this if you change folder structure. */
-            }
-            .draggable1:hover,.draggable:hover
-            {
-                width: 55px;
-                height: 77px;
-                background-color: #FFFF00;
-                z-index: 999;
-            }
-        </style>
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
         <script src="/views/scripts/duel-jquery-ui.js"></script>
         <script>
             $(function () {
-                /*$(".draggable1").draggable({ 
-                 containment: "#opponent",
-                 scroll: false,
-                 cursor: "move",
-                 cursorAt: { top: 25, left: 15 }
-                 });
-                 */
-                $(".draggable").draggable({
-                    containment: "#self",
-                    scroll: false,
-                    cursor: "move",
-                    cursorAt: {top: 25, left: 15}
-                });
-                /*
-                $("#chat").on('keyup', function (e) {
-                    if (e.keyCode == 13)
-                    {
-                        send_message(text);
-                    }
-                });
-                $("#chat").focusin(function () {
-                    $("#box").show("blind", "down");
-                });
-                $("#chat").focusout(function () {
-                    $("#box").hide("blind", "up");
-                });
-                */
+            /*$(".draggable1").draggable({ 
+            containment: "#opponentField",
+            scroll: false,
+            cursor: "move",
+            cursorAt: { top: 25, left: 15 }
+            });
+            */
+            $(".draggable").draggable({
+            containment: "#selfField",
+            scroll: false,
+            cursor: "move",
+            cursorAt: {top: 25, left: 15}
+            });
+            /*
+            $("#chat").on('keyup', function (e) {
+            if (e.keyCode == 13)
+            {
+            send_message(text);
+            }
+            });
+            $("#chat").focusin(function () {
+            $("#box").show("blind", "down");
+            });
+            $("#chat").focusout(function () {
+            $("#box").hide("blind", "up");
+            });
+            */
             });
         </script>
     </head>
     <body>
         <div class="game">
-            <div id="opponent">
+            <div id="opponentField">
                 <div class="draggable1" class="ui-widget-content">
                 </div>
                 <div class="draggable1" class="ui-widget-content">
@@ -139,7 +56,7 @@
                 <div class="draggable1" class="ui-widget-content">
                 </div>
             </div>
-            <div id="self">
+            <div id="selfField">
                 <div class="draggable" class="ui-widget-content">
                 </div>
                 <div class="draggable" class="ui-widget-content">
@@ -150,13 +67,13 @@
                 </div>
                 <div class="draggable" class="ui-widget-content">
                 </div>
-                <div id="pause" onclick="send_pause()"></div>
-                <div id="forfiet" onclick="send_win()"></div>
+                <div id="pause" onclick="send_pause()">Pause</div>
+                <div id="forfiet" onclick="send_win()">Forfeit</div>
             </div>
         </div>
-<!--        <div id="box"> sinnan khowaja dil mein samaja </div>
+        <div id="box"> sinnan khowaja dil mein samaja </div>
         <div id="chat_box">
             <input type="text" id="chat"></input>
-        </div>-->
+        </div>
     </body>
 </html>

@@ -1,11 +1,93 @@
 body {
-	font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 table {
-	font-size: 1em;
+    font-size: 1em;
 }
 
 .ui-draggable, .ui-droppable {
-	background-position: top;
+    background-position: top;
+}
+#chat_box
+{       
+    margin-left: -1px;
+    width: 100%;
+    height: 5vh;
+    float: left;
+}
+#box {
+    opacity: 0.7;
+    z-index: 1000;
+    height: 150px;
+    width: 100%;
+    margin-left: -1px;
+    margin-top: -150px;
+    float: left;
+    display: none;
+    background-color: #F0F0F0;
+}
+
+#pause,#forfiet
+{
+    height: 40px;
+    width: 100px;
+    background-color: #000000;
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+#pause:hover,#forfiet:hover
+{
+    background-color: #FFFFFF;
+}
+#chat
+{
+    border: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    background-color: #FF00FF;
+
+}
+.game
+{
+    margin-top: -8px;
+    margin-left: -1px;
+    padding: 0;
+    width: 100%;
+    height: 95vh;
+    overflow: hidden;
+    float: left;
+}
+#opponentField
+{
+    width: 100%;
+    height: 50%;
+    background-color: #FF0000;
+}
+#selfField
+{
+    width: 100%;
+    height: 50%;
+    background-color: #0000FF;
+}
+
+.draggable1,.draggable
+{ 
+    width: 50px;
+    height: 70px;
+    background-color: #00FF00;
+    float: left;
+    content: url(/views/images/cardback.jpg);
+    /* CHANGE this if you change folder structure. */
+}
+.draggable1:hover,.draggable:hover
+{
+    width: 55px;
+    height: 77px;
+    background-color: #FFFF00;
+    z-index: 999;
 }
