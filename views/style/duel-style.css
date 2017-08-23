@@ -74,7 +74,7 @@ body {
     height: 11vh;
     background: url(/views/images/cardback.jpg);
     background-size: cover;
-    margin: 0.5vh 1vh 0 1vh;
+    margin: 1vh 1vh 0 1vh;
 
     outline:1px solid  #808080;
     outline-offset:-1px;
@@ -87,7 +87,7 @@ body {
     height: 11vh;
     background: url(/views/images/cardback.jpg);
     background-size: cover;
-    margin: 0.5vh 1vh 0 1vh;
+    margin: 1vh 1vh 0 1vh;
 
     outline:1px solid  #808080;
     outline-offset:-1px;
