@@ -24,7 +24,7 @@ body {
 
     width: 82%;
     height: 99.5vh;
-    overflow: auto;
+    overflow: hidden;
     float: left;
 }
 #leftBar {
@@ -78,6 +78,28 @@ body {
 
     outline:1px solid  #808080;
     outline-offset:-1px;
+}
+
+.opp_mana_card {
+    display: inline-block;
+    white-space: normal;
+    width: 8vh;
+    height: 11vh;
+    background: url(/views/images/cardback.jpg);
+    background-size: cover;
+    margin: 0.5vh 1vh 0 1vh;
+
+    outline:1px solid  #808080;
+    outline-offset:-1px;
+
+    transform:rotateX(180deg);
+    -ms-transform:rotateX(180deg); /* IE 9 */
+    -webkit-transform:rotateX(180deg); /* Safari and Chrome */
+}
+#opponent_mana {
+    transform:rotateX(180deg);
+    -ms-transform:rotateX(180deg); /* IE 9 */
+    -webkit-transform:rotateX(180deg); /* Safari and Chrome */
 }
 .SDGH {
     height: 30%;
