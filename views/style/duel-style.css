@@ -14,7 +14,7 @@ body {
 
 .card{
     width: 7vh;
-    padding-bottom:7.5%;
+    padding-bottom:8%;
     
     background: url(/views/images/cardback.jpg);
     background-size: cover;    
