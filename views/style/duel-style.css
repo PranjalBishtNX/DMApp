@@ -99,10 +99,10 @@ body {
     background-size: cover;   
 }
 .my_hand_card:hover {
-    -webkit-transition: 0.1s;
-    -moz-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition:0.1s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition:0.2s;
     z-index: 999;
 
     margin: -2.1vh -2vh 1.2vh 1vh; /* left margin */
