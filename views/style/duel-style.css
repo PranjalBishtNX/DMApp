@@ -5,7 +5,7 @@ body {
     font-size: small;
     background-color: #808080;
     margin: 1px 1px 1px 1px;
-    
+
 }
 
 .ui-draggable, .ui-droppable {
@@ -14,8 +14,8 @@ body {
 
 .card{
     width: 7vh;
-    padding-bottom:8%;
-    
+    padding-bottom:8%; /*depends on division to keep aspect ratio*/
+    border-radius: 5%;
     background: url(/views/images/cardback.jpg);
     background-size: cover;    
 }
@@ -64,26 +64,53 @@ body {
     width: 75%;
     height: 22%;
     float:right;
-    background-color: #ffffff;
+    background-color: #ffffff;   
+    overflow-y: hidden;
+    overflow:visible;
+
     outline:1px solid  #808080;
     outline-offset:-1px;
-    
-    overflow:auto;
+
+}
+#my_hand:hover{
+    outline:0px;
 }
 .centerer_h{
     display: table;
     height:100%;
     margin: 0 auto;
-   
- 
+    overflow:visible;
+
+
+
 }
 .my_hand_card{
+    -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition:0.1s;
+    overflow:visible;
+
     margin: 1.2vh 0 1.2vh 1vh; /* left margin */
     float:left;
     width: 14vh;
     height: 90%;
     padding-bottom: 32%;
     background-size: cover;   
+}
+.my_hand_card:hover {
+    -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+    -o-transition: 0.1s;
+    transition:0.1s;
+    z-index: 999;
+
+    margin: -2.1vh -2vh 1.2vh 1vh; /* left margin */
+    float:left;
+    width: 16vh;
+    height: 105%;
+    padding-bottom: 32%;
+    background-size: cover;
 }
 
 .battle_zone {
@@ -107,37 +134,28 @@ body {
     height: 100%;
 }
 .shield_zone {
-    width: 73%;
+    width: 87%;
     background-color: #ebedff;
-
 }
-#my_deck { 
-    width: 9%;
-    background-color: #ebedff;
 
-}
 #my_grave {
-    width: 9%;
+    width: 6.5%;
     background-color: #ebedff;
 
 }
 #my_hsp {
-    width: 9%;
+    width: 6.5%;
     background-color: #ebedff;
 
 }
-#opponent_deck { 
-    width: 9%;
-    background-color: #ebedff;
 
-}
 #opponent_grave {
-    width: 9%;
+    width: 6.5%;
     background-color: #ebedff;
 
 }
 #opponent_hsp {
-    width: 9%;
+    width: 6.5%;
     background-color: #ebedff;
 
 }
@@ -160,19 +178,15 @@ body {
     display: inline-block;
     white-space: normal;
     margin: 0 1vh 0 1vh;
-    outline:1px solid  #808080;
-    outline-offset:-1px;
     vertical-align: middle;
+    border-radius: 5%;
 }
-
 .opp_mana_card {
     display: inline-block;
     white-space: normal;
-
-    margin: 1vh 1vh 0 1vh;
-
-    outline:1px solid  #808080;
-    outline-offset:-1px;
+    margin: 0 1vh 0 1vh;
+    border-radius: 5%;
+    vertical-align: middle;
 
     transform:rotateX(180deg);
     -ms-transform:rotateX(180deg); /* IE 9 */
@@ -185,20 +199,20 @@ body {
 }
 
 .draggable1,.draggable { 
-    width: 8.5vh;
-    height: 12vh;
-    background-color: #00FF00;
+    width: 7vh;
+    padding-bottom:7.7%;
+    border-radius: 5%;
+    background: url(/views/images/cardback.jpg);
+    /* CHANGE this if you change folder structure. */
     float: left;
     z-index: 998;
-    content: '';
-    background: url(/views/images/cardback.jpg);
-    background-size: cover;
-    /* CHANGE this if you change folder structure. */
+    background-size: contain;
+
 }
 .draggable1:hover,.draggable:hover {
     /* width: 10vh;
      height: 14vh; */
     background-color: #FFFF00;
-    z-index: 998;
+    z-index: 999;
     cursor: move;
 }
