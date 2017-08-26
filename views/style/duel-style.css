@@ -11,6 +11,12 @@ body {
     background-position: top;
 }
 
+.card{
+    width: 7vh;
+    height: 9.5vh;
+    background: url(/views/images/cardback.jpg);
+    background-size: cover;    
+}
 #chat {
     border: none;
     margin: 0;
@@ -40,17 +46,44 @@ body {
 }
 #opponent_field {
     width: 75%;
-    height: 50%;
+    height: 39%;
     background-color: #808080;
     float: right;
 }
 #self_field {
     width: 75%;
-    height: 50%;
+    height: 39%;
     background-color: #808080;
     float: right;
 
 }
+
+#my_hand{
+    width: 75%;
+    height: 22%;
+    float:right;
+    background-color: #ffffff;
+    outline:1px solid  #808080;
+    outline-offset:-1px;
+    
+    overflow:auto;
+}
+.centerer_h{
+    display: table;
+    height:100%;
+    margin: 0 auto;
+   
+ 
+}
+.my_hand_card{
+    margin: 1.2vh 0 1.2vh 1vh; /* left margin */
+    float:left;
+    width: 14vh;;
+    height:90%;
+    background-size: cover;  
+   
+}
+
 .battle_zone {
     height: 42%;
     background-color: #fff0f0;
@@ -107,36 +140,33 @@ body {
 
 }
 .mana_zone {
-
     height: 30%;
     background-color: #ebffeb;
     white-space: nowrap;
     overflow-x: auto;
     overflow-y: hidden;
-
     outline:1px solid  #808080;
     outline-offset:-1px;
 }
-.mana_card {
+.mana_zone:before {  /*added pseudo element because vertical align doesn't work with mana cards being inline-blocks */
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+}
+.my_mana_card {
     display: inline-block;
     white-space: normal;
-    width: 8vh;
-    height: 11vh;
-    background: url(/views/images/cardback.jpg);
-    background-size: cover;
-    margin: 1vh 1vh 0 1vh;
-
+    margin: 0 1vh 0 1vh;
     outline:1px solid  #808080;
     outline-offset:-1px;
+    vertical-align: middle;
 }
 
 .opp_mana_card {
     display: inline-block;
     white-space: normal;
-    width: 8vh;
-    height: 11vh;
-    background: url(/views/images/cardback.jpg);
-    background-size: cover;
+
     margin: 1vh 1vh 0 1vh;
 
     outline:1px solid  #808080;
@@ -151,6 +181,7 @@ body {
     -ms-transform:rotateX(180deg); /* IE 9 */
     -webkit-transform:rotateX(180deg); /* Safari and Chrome */
 }
+
 .draggable1,.draggable { 
     width: 8.5vh;
     height: 12vh;

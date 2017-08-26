@@ -12,33 +12,33 @@
         <script src="/views/scripts/duel-jquery-ui.js"></script>
         <script>
             $(function () {
-                /*$(".draggable1").draggable({ 
-                 containment: "#opponentField",
-                 scroll: false,
-                 cursor: "move",
-                 cursorAt: { top: 25, left: 15 }
-                 });
-                 */
-                $(".draggable").draggable({
-                    containment: "#selfField",
-                    scroll: false,
-                    cursor: "move",
-                    cursorAt: {top: 25, left: 15}
-                });
-                /*
-                 $("#chat").on('keyup', function (e) {
-                 if (e.keyCode == 13)
-                 {
-                 send_message(text);
-                 }
-                 });
-                 $("#chat").focusin(function () {
-                 $("#box").show("blind", "down");
-                 });
-                 $("#chat").focusout(function () {
-                 $("#box").hide("blind", "up");
-                 });
-                 */
+            /*$(".draggable1").draggable({ 
+            containment: "#opponentField",
+            scroll: false,
+            cursor: "move",
+            cursorAt: { top: 25, left: 15 }
+            });
+            */
+            $(".draggable").draggable({
+            containment: "#selfField",
+            scroll: false,
+            cursor: "move",
+            cursorAt: {top: 25, left: 15}
+            });
+            /*
+            $("#chat").on('keyup', function (e) {
+            if (e.keyCode == 13)
+            {
+            send_message(text);
+            }
+            });
+            $("#chat").focusin(function () {
+            $("#box").show("blind", "down");
+            });
+            $("#chat").focusout(function () {
+            $("#box").hide("blind", "up");
+            });
+            */
             });
         </script>
     </head>
@@ -49,31 +49,17 @@
         </div>
         <div class="game">
             <div id="left_bar">
-                <div id="card_details">Card pic and details go here</div>
-            
-            
+                <div id="card_details">Left Bar</div>
             </div>
 
             <div id="opponent_field">
 
                 <div id = "opponent_mana" class="mana_zone">  
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-                    <div class="opp_mana_card"></div>
-
-
+                    <div class="card opp_mana_card"></div>
+                    <div class="card opp_mana_card"></div>
+                    <div class="card opp_mana_card"></div>
+                    <div class="card opp_mana_card"></div>
+                    <div class="card opp_mana_card"></div>
                 </div>
                 <div id="opponent_SDGH" class="SDGH">
                     <div id="opponent_hsp" class="col">hsp</div>
@@ -85,19 +71,21 @@
                 <div id= "opponent_bz" class ="battle_zone"></div>
             </div>
             <div id="self_field">
-                <div class="draggable ui-widget-content">
-                </div>
-                <div class="draggable ui-widget-content">
-                </div>
-                <div class="draggable ui-widget-content">
-                </div>
-                <div class="draggable ui-widget-content">
-                </div>
-                <div class="draggable ui-widget-content">
-                </div>     
-                <div id= "my_bz" class ="battle_zone"></div>
 
-                <div id="my_SDGH" class="SDGH">
+                <div id= "my_bz" class ="battle_zone">My BattleZOne  
+                    <div class="draggable ui-widget-content">
+                    </div>
+                    <div class="draggable ui-widget-content">
+                    </div>
+                    <div class="draggable ui-widget-content">
+                    </div>
+                    <div class="draggable ui-widget-content">
+                    </div>
+                    <div class="draggable ui-widget-content">
+                    </div>     
+                </div>   
+
+                <div id="my_SDGH" class="SDGH">  <!-- The division for Shield, Deck, Grave, HSP = SDGH -->
                     <div id ="my_shields" class="shield_zone col">my shields</div>
                     <div id="my_deck" class="col">my deck</div>
                     <div id="my_grave" class="col">my grave</div>
@@ -105,25 +93,33 @@
                 </div>
 
                 <div id ="my_mana" class="mana_zone">
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
-                    <div class="mana_card"></div>
+                    <div class="card my_mana_card"></div>
+                    <div class="card my_mana_card"></div>
+                    <div class="card my_mana_card"></div>
+                    <div class="card my_mana_card"></div>
+                    <div class="card my_mana_card"></div>
+
                 </div>
-
-
             </div>
-
+            <div id ="my_hand">
+                <div class="centerer_h">
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                    <div class="card my_hand_card"></div>
+                   
+                  
+                </div>
+            </div>
+        </div>
 
     </body>
 </html>
