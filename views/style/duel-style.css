@@ -5,6 +5,7 @@ body {
     font-size: small;
     background-color: #808080;
     margin: 1px 1px 1px 1px;
+    
 }
 
 .ui-draggable, .ui-droppable {
@@ -13,7 +14,8 @@ body {
 
 .card{
     width: 7vh;
-    height: 9.5vh;
+    padding-bottom:7.5%;
+    
     background: url(/views/images/cardback.jpg);
     background-size: cover;    
 }
@@ -21,7 +23,7 @@ body {
     border: none;
     margin: 0;
     padding: 0;
-    width: 18%;
+    width: 20%;
     height: 99.5vh;
     background-color: #FFFFFF;
     float: right;
@@ -30,7 +32,7 @@ body {
 }
 .game {
 
-    width: 82%;
+    width: 80%;
     height: 99.5vh;
     overflow: hidden;
     float: left;
@@ -78,10 +80,10 @@ body {
 .my_hand_card{
     margin: 1.2vh 0 1.2vh 1vh; /* left margin */
     float:left;
-    width: 14vh;;
-    height:90%;
-    background-size: cover;  
-   
+    width: 14vh;
+    height: 90%;
+    padding-bottom: 32%;
+    background-size: cover;   
 }
 
 .battle_zone {
