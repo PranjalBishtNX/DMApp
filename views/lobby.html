@@ -88,6 +88,7 @@
                                 return false;
                             });
                             socket.on('chat message', function (data) {
+                                if(data.msg!="")
                                 $('#messages').append($('<li>').html( "<b>"+ data.user + ": </b>"+data.msg));
                                 //changed it so that it appears in a single line, now the alternating li color works - will need alignment later
                                 //crap, the messages are actually sent as html now so html tags in messages work...
@@ -101,7 +102,6 @@
                            return 'This will disconnect you from the lobby!';
                            //the message doesn't get displayed in most modern browsers. Only the default dialogue comes up.
                         }
-
                     </script>
                 </div>
             </div>
