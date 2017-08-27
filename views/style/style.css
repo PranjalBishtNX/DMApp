@@ -154,9 +154,19 @@ ol li
     width:100%;
     overflow-y: auto;
     overflow-x: hidden;
+    border: 2px solid #d4d7db;
+    border-radius: 3px;
+    
+}
+#message_input_form
+{
+    width:109%;
+}
+#message_input_box{
+    width: 80%;
 }
 ul#messages li{
-    width: 99%;
+    width: 99%; /* 100% width makes one letter appear outside when breaking text */
     overflow-x:hidden;
     white-space:normal;
     word-wrap:break-word;
