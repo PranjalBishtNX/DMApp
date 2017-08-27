@@ -97,6 +97,11 @@
                             });
                         });
 
+                        window.onbeforeunload = function() {
+                           return 'This will disconnect you from the lobby!';
+                           //the message doesn't get displayed in most modern browsers. Only the default dialogue comes up.
+                        }
+
                     </script>
                 </div>
             </div>
