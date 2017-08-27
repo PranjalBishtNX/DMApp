@@ -17,7 +17,10 @@
             <div id="chat">
                 chat <br/>chat message 1 
             </div>
-            <div id="my_player_box" class="player_box">  
+            <div id="my_player_box" class="player_box"> 
+                <div id="my_deck">Your deck</div>
+                <div id="my_profile_pic">Your pic</div>
+                <div id="my_name">You</div>
 
             </div>
             <div id="turn_buttons">
@@ -29,7 +32,9 @@
             <div id="left_bar">
                 <div id="opp_hand" class="hand">Opponent's Hand</div>
                 <div id="opp_player_box" class="player_box">
-
+                    <div id="opp_deck">Opp deck</div>
+                    <div id="opp_profile_pic">Opp pic</div>
+                    <div id="opp_name">Opponent's Name</div>
                 </div>
                 <div id="zone_view">
                     Zone View
@@ -89,27 +94,11 @@
                            
                 <div class="card my_hand_card"></div>
                 <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>              
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>
                 <div class="card my_hand_card"></div>
                 <div class="card my_hand_card"></div>
                 <div class="card my_hand_card"></div>
                 <div class="card my_hand_card"></div>              
                 <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>  <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>              
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>
-                <div class="card my_hand_card"></div>              
                 <div class="card my_hand_card"></div>
                 <div class="card my_hand_card"></div>
                 <div class="card my_hand_card"></div>
@@ -118,7 +107,6 @@
         </div>
     </body>
     <script>
-
             $(function () {  
                 $(".draggable").draggable({
                     containment: "#selfField",
@@ -135,7 +123,7 @@
             function arrangeCards(){
                 var cards = document.getElementsByClassName("my_hand_card");
                
-                cw = container.clientWidth;     //viewable width
+                cw = container.clientWidth     //viewable width
                 sw = $(cards[0]).outerWidth(true)*cards.length;     //width including overflow
                 diff=0;
                 if(sw>cw)diff = sw-cw;
@@ -151,7 +139,7 @@
             
             var b = document.getElementById("next");
             b.addEventListener("click", function() {              
-                setTimeout(arrangeCards, 250);
+              //stuff to do when next is clicked
             });
         </script>
 </html>

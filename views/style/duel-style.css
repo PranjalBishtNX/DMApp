@@ -23,7 +23,17 @@ body {
     height: 9.75vh;   
     background: url(/views/images/cardback.jpg);
     background-size: cover;    
+    border-radius: 5%;
 }
+
+.game {
+    width: 80%;
+    height: 99.5vh;
+    overflow: hidden;
+    float: left;
+}
+
+/* --------------- right bar stuff ---------------*/
 #right_bar {
     border: none;
     margin: 0;
@@ -40,18 +50,32 @@ body {
     outline:1px solid  #808080;
     outline-offset: -1px;
 }
-.player_box{
+.player_box{  /* applies to opp box in left as well */
     height:40%;
     outline:1px solid  #808080;
     outline-offset: -1px;
 }
-.game {
-
-    width: 80%;
-    height: 99.5vh;
-    overflow: hidden;
-    float: left;
+#my_deck{
+    float:left;
+    outline:inherit; outline-offset: inherit;
+    width:11vh;
+    height:75%;
 }
+#my_profile_pic{
+    outline:inherit; outline-offset: inherit;
+    float:right;
+    width:calc(100% - 11vh);
+    height:75%;
+}
+#my_name{
+    float:left;
+    outline:inherit; outline-offset: inherit;
+    width:100%;
+    height:25%;
+}
+
+/* --------------- left bar stuff ---------------*/
+
 #left_bar {
     border: none;
     width: 25%;
@@ -61,16 +85,38 @@ body {
     outline:1px solid  #808080;
     outline-offset: -1px;
 }
+/* opp box already done in player box class */
+#opp_deck{
+    float:right;
+    outline:inherit; outline-offset: inherit;
+    width:11vh;
+    height:75%;
+}
+#opp_profile_pic{
+    outline:inherit; outline-offset: inherit;
+    float:left;
+    width:calc(100% - 11vh);
+    height:75%;
+}
+#opp_name{
+    float:left;
+    outline:inherit; outline-offset: inherit;
+    width:100%;
+    height:25%;
+}
 #opp_hand{
     height:11.7%;
     outline:1px solid  #808080;
     outline-offset: -1px;
 }
+/*----------- zone view ---------------*/
 #zone_view{
     height:48.3%;
     outline:1px solid  #808080;
     outline-offset: -1px;
 }
+
+/*-------------  field  ---------------*/
 #opponent_field {
     width: 75%;
     height: 39%;
@@ -94,21 +140,19 @@ body {
     justify-content: flex-start;
     outline:1px solid  #808080;
     outline-offset:-1px;
-
 }
 #my_hand:hover{
     outline:0px;
 }
 .my_hand_card{
-
-
-    /* FLEX IS FUCKING GOOD FOR CASCADING - JUSTIFY */
     position:relative;
     margin: 1.2vh 0 1.2vh 1vh; /* left margin */
     flex-shrink: 0;
     width: 14.2vh;
     height: 20vh;
+    border:1px solid  #808080;
     background-size: cover;   
+
 }
 .my_hand_card:hover {
     margin: -1.3vh -1.8vh 1.2vh 1vh; /* left margin */
@@ -133,34 +177,36 @@ body {
     float: left;
     position: relative;
     background: #000000;
-    width: 20%;
+    float:left;
     outline:1px solid  #808080;
     outline-offset:-1px;
     height: 100%;
 }
 .shield_zone {
-    width: 87%;
+    width: calc( 100% - 16vh ); /*will not work in older browsers, use moz, webkit, o prefixes*/
     background-color: #ebedff;
 }
 
 #my_grave {
-    width: 6.5%;
+    float:right;
+    width: 8vh;
     background-color: #ebedff;
 
 }
 #my_hsp {
-    width: 6.5%;
+    float: right;
+    width: 8vh;
     background-color: #ebedff;
 
 }
 
 #opponent_grave {
-    width: 6.5%;
+    width: 8vh;
     background-color: #ebedff;
 
 }
 #opponent_hsp {
-    width: 6.5%;
+    width: 8vh;
     background-color: #ebedff;
 
 }
@@ -184,13 +230,11 @@ body {
     white-space: normal;
     margin: 0 1vh 0 1vh;
     vertical-align: middle;
-    border-radius: 5%;
 }
 .opp_mana_card {
     display: inline-block;
     white-space: normal;
     margin: 0 1vh 0 1vh;
-    border-radius: 5%;
     vertical-align: middle;
 
     transform:rotateX(180deg);
@@ -204,6 +248,7 @@ body {
 }
 
 .draggable1,.draggable { 
+    transition:0s;
     width: 7vh;
     height: 9.75vh;
     border-radius: 5%;
@@ -217,6 +262,7 @@ body {
 .draggable1:hover,.draggable:hover {
     /* width: 10vh;
      height: 14vh; */
+    transition:0s;
     background-color: #FFFF00;
     z-index: 999;
     cursor: move;
