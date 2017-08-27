@@ -1,4 +1,10 @@
-* {box-sizing:border-box}
+* {
+    box-sizing:border-box;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -o-transition: 0.2s;
+    transition:0.2s;
+}
 
 body {
     font-family: Arial, Helvetica, sans-serif;
@@ -14,12 +20,11 @@ body {
 
 .card{
     width: 7vh;
-    padding-bottom:8%; /*depends on division to keep aspect ratio*/
-    border-radius: 5%;
+    height: 9.75vh;   
     background: url(/views/images/cardback.jpg);
     background-size: cover;    
 }
-#chat {
+#right_bar {
     border: none;
     margin: 0;
     padding: 0;
@@ -27,6 +32,16 @@ body {
     height: 99.5vh;
     background-color: #FFFFFF;
     float: right;
+    outline:1px solid  #808080;
+    outline-offset: -1px;
+}
+#chat{
+    height:50%;
+    outline:1px solid  #808080;
+    outline-offset: -1px;
+}
+.player_box{
+    height:40%;
     outline:1px solid  #808080;
     outline-offset: -1px;
 }
@@ -46,6 +61,16 @@ body {
     outline:1px solid  #808080;
     outline-offset: -1px;
 }
+#opp_hand{
+    height:11.7%;
+    outline:1px solid  #808080;
+    outline-offset: -1px;
+}
+#zone_view{
+    height:48.3%;
+    outline:1px solid  #808080;
+    outline-offset: -1px;
+}
 #opponent_field {
     width: 75%;
     height: 39%;
@@ -60,14 +85,13 @@ body {
 
 }
 
-#my_hand{
+#my_hand{  
     width: 75%;
     height: 22%;
-    float:right;
     background-color: #ffffff;   
-    overflow-y: hidden;
+    display: flex;
     overflow:visible;
-
+    justify-content: flex-start;
     outline:1px solid  #808080;
     outline-offset:-1px;
 
@@ -75,41 +99,22 @@ body {
 #my_hand:hover{
     outline:0px;
 }
-.centerer_h{
-    display: table;
-    height:100%;
-    margin: 0 auto;
-    overflow:visible;
-
-
-
-}
 .my_hand_card{
-    -webkit-transition: 0.1s;
-    -moz-transition: 0.1s;
-    -o-transition: 0.1s;
-    transition:0.1s;
-    overflow:visible;
 
+
+    /* FLEX IS FUCKING GOOD FOR CASCADING - JUSTIFY */
+    position:relative;
     margin: 1.2vh 0 1.2vh 1vh; /* left margin */
-    float:left;
-    width: 14vh;
-    height: 90%;
-    padding-bottom: 32%;
+    flex-shrink: 0;
+    width: 14.2vh;
+    height: 20vh;
     background-size: cover;   
 }
 .my_hand_card:hover {
-    -webkit-transition: 0.2s;
-    -moz-transition: 0.2s;
-    -o-transition: 0.2s;
-    transition:0.2s;
-    z-index: 999;
-
-    margin: -2.1vh -2vh 1.2vh 1vh; /* left margin */
+    margin: -1.3vh -1.8vh 1.2vh 1vh; /* left margin */
     float:left;
     width: 16vh;
-    height: 105%;
-    padding-bottom: 32%;
+    height: 22.5vh;
     background-size: cover;
 }
 
@@ -200,7 +205,7 @@ body {
 
 .draggable1,.draggable { 
     width: 7vh;
-    padding-bottom:7.7%;
+    height: 9.75vh;
     border-radius: 5%;
     background: url(/views/images/cardback.jpg);
     /* CHANGE this if you change folder structure. */

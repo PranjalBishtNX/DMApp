@@ -10,46 +10,31 @@
 
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
         <script src="/views/scripts/duel-jquery-ui.js"></script>
-        <script>
-            $(function () {
-            /*$(".draggable1").draggable({ 
-            containment: "#opponentField",
-            scroll: false,
-            cursor: "move",
-            cursorAt: { top: 25, left: 15 }
-            });
-            */
-            $(".draggable").draggable({
-            containment: "#selfField",
-            scroll: false,
-            cursor: "move",
-            cursorAt: {top: 25, left: 15}
-            });
-            /*
-            $("#chat").on('keyup', function (e) {
-            if (e.keyCode == 13)
-            {
-            send_message(text);
-            }
-            });
-            $("#chat").focusin(function () {
-            $("#box").show("blind", "down");
-            });
-            $("#chat").focusout(function () {
-            $("#box").hide("blind", "up");
-            });
-            */
-            });
-        </script>
+        
     </head>
-    <body>
-        <div id="chat"> chat <br/>chat message 1 
-            <!--<div id="pause" onclick="send_pause()">Pause</div>
-               <div id="forfiet" onclick="send_win()">Forfeit</div>-->
+    <body onresize="setTimeout(arrangeCards, 250)">
+        <div id="right_bar"> 
+            <div id="chat">
+                chat <br/>chat message 1 
+            </div>
+            <div id="my_player_box" class="player_box">  
+
+            </div>
+            <div id="turn_buttons">
+                <button id="next">Next</button>
+                <button id="end">End</button>
+            </div>
         </div>
         <div class="game">
             <div id="left_bar">
-                <div id="card_details">Left Bar</div>
+                <div id="opp_hand" class="hand">Opponent's Hand</div>
+                <div id="opp_player_box" class="player_box">
+
+                </div>
+                <div id="zone_view">
+                    Zone View
+                    <!-- need tabs in this thing -->
+                </div>
             </div>
 
             <div id="opponent_field">
@@ -64,7 +49,7 @@
                 <div id="opponent_SDGH" class="SDGH">
                     <div id="opponent_hsp" class="col">hsp</div>
                     <div id="opponent_grave" class="col">grave</div>
-                    
+
                     <div id="opponent_shields" class="shield_zone col">shields</div>
 
                 </div>              
@@ -101,16 +86,72 @@
                 </div>
             </div>
             <div id ="my_hand">
-                <div class="centerer_h">
-                    <div class="card my_hand_card"></div>
-                    <div class="card my_hand_card"></div>
-                    <div class="card my_hand_card"></div>
-                    <div class="card my_hand_card"></div>
-                   
-                  
-                </div>
+                           
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>              
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>              
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>  <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>              
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>              
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
+                <div class="card my_hand_card"></div>
             </div>
         </div>
-
     </body>
+    <script>
+
+            $(function () {  
+                $(".draggable").draggable({
+                    containment: "#selfField",
+                    scroll: false,
+                    cursor: "move",
+                    cursorAt: {top: 30, left: 20}
+                });
+            });
+            function getE(id){
+                return document.getElementById(id);
+            }
+            // Arrange hand cards 
+            var container = getE("my_hand");
+            function arrangeCards(){
+                var cards = document.getElementsByClassName("my_hand_card");
+               
+                cw = container.clientWidth;     //viewable width
+                sw = $(cards[0]).outerWidth(true)*cards.length;     //width including overflow
+                diff=0;
+                if(sw>cw)diff = sw-cw;
+                offset = diff / (cards.length -1 );
+              
+                for (var i = 1; i < cards.length; i++) {
+                    cards[i].style.transform = "translateX(-" + offset * i + "px)";               
+                  }
+            }
+            setTimeout(arrangeCards, 250);
+         
+            
+            
+            var b = document.getElementById("next");
+            b.addEventListener("click", function() {              
+                setTimeout(arrangeCards, 250);
+            });
+        </script>
 </html>
