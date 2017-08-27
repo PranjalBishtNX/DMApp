@@ -123,7 +123,7 @@
             function arrangeCards(){
                 var cards = document.getElementsByClassName("my_hand_card");
                
-                cw = container.clientWidth     //viewable width
+                cw = container.clientWidth -0.01*$(window).height();    //viewable width
                 sw = $(cards[0]).outerWidth(true)*cards.length;     //width including overflow
                 diff=0;
                 if(sw>cw)diff = sw-cw;

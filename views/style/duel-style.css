@@ -138,11 +138,6 @@ body {
     display: flex;
     overflow:visible;
     justify-content: flex-start;
-    outline:1px solid  #808080;
-    outline-offset:-1px;
-}
-#my_hand:hover{
-    outline:0px;
 }
 .my_hand_card{
     position:relative;
@@ -155,7 +150,7 @@ body {
 
 }
 .my_hand_card:hover {
-    margin: -1.3vh -1.8vh 1.2vh 1vh; /* left margin */
+    margin: -3.3vh -1.8vh 1.2vh 1vh; /* left margin */
     float:left;
     width: 16vh;
     height: 22.5vh;
