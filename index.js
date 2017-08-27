@@ -3,9 +3,11 @@ var express = require('express')
         , server = require('http').createServer(app)
         , io = require("socket.io").listen(server)
 
-//app.set('port', process.env.PORT || 3000);  
-//app.set('ipaddr', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");  
-//... code to continue
+        
+// usernames which are currently connected to the chat
+var usernames = {};
+var numberofusers=0;
+
 app.use('/views', express.static(__dirname + '/views'));
 
 app.get('/', function (req, res) {
@@ -36,21 +38,41 @@ app.get('/duel', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-    console.log('Client connected');
-    socket.broadcast.emit('chat message', 'Someone connected.');
-    socket.emit('chat message', 'You are connected.');
+    
+    // when the client emits 'adduser', this listens and executes
+    socket.on('adduser', function(username){
+        // we store the username in the socket session for this client
+        socket.username = username;
+        // add the client's username to the global list
+        usernames[username] = username;
+
+        // update the list of users in chat, client-side
+        io.sockets.emit('updateusers', usernames);
+        console.log('Client connected');
+        
+        socket.broadcast.emit('chat message', {msg: socket.username+ " joined the chat", user:socket.username});
+        //socket.emit('chat message', 'You are connected.');
+    });
+
+    
 
     socket.on('disconnect', function () {
-        console.log('Client disconnected');
-        socket.broadcast.emit('chat message', 'Someone disconnected.');
-        socket.emit('chat message', 'You disconnected.');
-    });
+        // remove the username from global usernames list
+        socket.broadcast.emit('chat message', {msg: socket.username+ " left the chat", user:socket.username});
+        delete usernames[socket.username];
+        // update list of users in chat, client-side
+        io.sockets.emit('updateusers', usernames);
 
-    socket.on('chat message', function (msg) {
-        io.emit('chat message', msg);
+        console.log('Client disconnected');
+        
+        //socket.emit('chat message', 'You disconnected.');
+    });
+    
+
+    socket.on('chat message', function (data) {
+        io.emit('chat message', {msg: data, user:socket.username});
     });
 });
-
 server.listen(process.env.PORT || 3000, function () {
     console.log('listening');
 });

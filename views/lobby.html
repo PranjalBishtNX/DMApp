@@ -43,10 +43,7 @@
                 <div class="sidebar">
                     <!-- insert your sidebar items here -->
                     <h3>Users online</h3>              
-                    <ul>
-                        <li>lol</li>
-                        <li>lol2</li>
-                    </ul>
+                    <ul id="users"></ul>
                 </div>
                 <div id="content">
                     <!-- insert the page content here -->                 
@@ -60,16 +57,36 @@
                     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 
                     <script>
+
+                        var socket = io();
+                        var currentuser;
+
+                        // on connection to server, ask for user's name with an anonymous callback
+                        socket.on('connect', function(){
+                            // call the server-side function 'adduser' and send one parameter (value of prompt)
+                            socket.emit('adduser', prompt("What's your name?"));
+                        });
+
+                        // listener, whenever the server emits 'updateusers', this updates the username list
+                        socket.on('updateusers', function(data) {
+                            $('#users').html("");
+                            for (x in data){
+                            $('#users').append($('<li>').text(data[x]));
+                                window.scrollTo(0, document.body.scrollHeight);
+                            }});
+
+
                         $(function () {
 
-                            var socket = io();
+                            //var socket = io();
                             $('form').submit(function () {
                                 socket.emit('chat message', $('#m').val());
                                 $('#m').val('');
                                 return false;
                             });
-                            socket.on('chat message', function (msg) {
-                                $('#messages').append($('<li>').text(msg));
+                            socket.on('chat message', function (data) {
+                                $('#messages').append("<b>"+ data.user + ": </b>" )
+                                $('#messages').append($('<li>').text( data.msg));
                                 window.scrollTo(0, document.body.scrollHeight);
                             });
                         });
