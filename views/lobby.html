@@ -46,8 +46,10 @@
                     <ul id="users"></ul>
                 </div>
                 <div id="content">
-                    <!-- insert the page content here -->                 
-                    <ul id="messages"></ul>
+                    <!-- insert the page content here -->
+                    <div id="message_box">
+                        <ul id="messages"></ul>
+                    </div>
                     <form action="">
                         <input id="m" autocomplete="off" /><button>Send</button>
                     </form>
@@ -85,9 +87,10 @@
                                 return false;
                             });
                             socket.on('chat message', function (data) {
-                                $('#messages').append("<b>"+ data.user + ": </b>" )
-                                $('#messages').append($('<li>').text( data.msg));
-                                window.scrollTo(0, document.body.scrollHeight);
+                                $('#messages').append($('<li>').html( "<b>"+ data.user + ": </b>"+data.msg));
+                                //changed it so that it appears in a single line, now the alternating li color works - will need alignment later
+                                var box = document.getElementById("message_box");
+                                box.scrollTop = box.scrollHeight;
                             });
                         });
 

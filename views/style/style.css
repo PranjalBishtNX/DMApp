@@ -148,6 +148,19 @@ ol li
   padding-top: 4px;
   padding-left: 4px;} 
 
+#message_box
+{
+    height: 400px;
+    width:100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+ul#messages li{
+    width: 99%;
+    overflow-x:hidden;
+    white-space:normal;
+    word-wrap:break-word;
+}
 ul#menu
 { float: right;
   margin: 0px;}
