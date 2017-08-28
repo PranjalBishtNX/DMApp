@@ -2,17 +2,47 @@ var express = require('express')
         , app = express()
         , server = require('http').createServer(app)
         , io = require("socket.io").listen(server)
+var bodyParser = require('body-parser');
 
-        
+// use body parser to easy fetch post body
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json())
+
+
 // usernames which are currently connected to the chat
 var usernames = {};
-var numberofusers=0;
+
+//name entered in homepage to be set in this global variable
+var nick;
+
 
 app.use('/views', express.static(__dirname + '/views'));
 
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/views/index.html');
 });
+
+
+//route that receives the post body, saves the username and redirects to lobby
+app.post('', function (req, res, next) {
+  validateusername(req.body, res);
+});
+
+function validateusername(parms, res) {
+  //get the parameters based on input name attribute from the html
+  //and parse string to variable
+  nick = parms.inputname;
+   
+  if(nick in usernames){
+    //this section is yet to be completed. If a username already is in use, an error message should be generated and redirected back to homepage
+  return res.redirect('/');
+    }
+    else{
+        //directing to lobby
+   return res.redirect('/lobby');
+}
+}
+
 
 app.get('/login', function (req, res) {
     //login controllers go here
@@ -41,11 +71,16 @@ io.on('connection', function (socket) {
     
     // when the client emits 'adduser', this listens and executes
     socket.on('adduser', function(username){
+         if (nick in usernames){//this block is for assigning usernames if user enters through lobby url directly i.e from prompt
+            socket.username = username;
+            usernames[username] = username;
+        }
+        else{ //this block assigns username from home page
         // we store the username in the socket session for this client
-        socket.username = username;
+        socket.username = nick;
         // add the client's username to the global list
-        usernames[username] = username;
-
+        usernames[nick] = nick;
+        }
         // update the list of users in chat, client-side
         io.sockets.emit('updateusers', usernames);
         console.log('Client connected');
