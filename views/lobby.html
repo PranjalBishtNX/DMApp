@@ -67,13 +67,12 @@
                         // on connection to server, ask for user's name with an anonymous callback
                         socket.on('connect', function () {
                             // call the server-side function 'adduser' and send one parameter (value of prompt)
-                            if (currentuser == '')
-                                //if there is no username
-                                socket.emit('adduser', prompt("If you have already entered a name in home page, ignore this. if not, please enter a Username"));
-                            else
-                                socket.emit('adduser'); //if username was already entered on homepage
+                            //  if (currentuser === undefined)  //if there is no username //doesn't work, currentuser is not the var we want. That is with index.js     
+                            socket.emit('adduser', prompt(currentuser + "If you have already entered a name in home page, ignore this. if not, please enter a Username"));
+                            //    else
+                            //              socket.emit('adduser'); //if username was already entered on homepage
                         });
-                        
+
                         // listener, whenever the server emits 'updateusers', this updates the username list
                         socket.on('updateusers', function (data) {
                             $('#users').html("");
