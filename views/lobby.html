@@ -8,7 +8,7 @@
         <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
         <link rel="stylesheet" type="text/css" href="/views/style/style.css" />
         <style>
-
+            
             form input { border: 0; padding: 10px; width: 91%; }
             form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
             #messages { list-style-type: none; margin: 0; padding: 0; }
@@ -65,23 +65,18 @@
                         var currentuser;
 
                         // on connection to server, ask for user's name with an anonymous callback
-                        socket.on('connect', function () {
+                        socket.on('connect', function(){
                             // call the server-side function 'adduser' and send one parameter (value of prompt)
-                            if (currentuser == '')
-                                //if there is no username
-                                socket.emit('adduser', prompt("If you have already entered a name in home page, ignore this. if not, please enter a Username"));
-                            else
-                                socket.emit('adduser'); //if username was already entered on homepage
+                            socket.emit('adduser', prompt("If you have already entered a name in home page, ignore this. if not, please enter a Username"));
                         });
 
                         // listener, whenever the server emits 'updateusers', this updates the username list
-                        socket.on('updateusers', function (data) {
+                        socket.on('updateusers', function(data) {
                             $('#users').html("");
-                            for (x in data) {
-                                $('#users').append($('<li>').text(data[x]));
+                            for (x in data){
+                            $('#users').append($('<li>').text(data[x]));
                                 window.scrollTo(0, document.body.scrollHeight);
-                            }
-                        });
+                            }});
 
 
                         $(function () {
@@ -93,19 +88,19 @@
                                 return false;
                             });
                             socket.on('chat message', function (data) {
-                                if (data.msg != "")
-                                    $('#messages').append($('<li>').html("<b>" + data.user + ": </b>" + data.msg));
+                                if(data.msg!="")
+                                $('#messages').append($('<li>').html( "<b>"+ data.user + ": </b>"+data.msg));
                                 //changed it so that it appears in a single line, now the alternating li color works - will need alignment later
                                 //crap, the messages are actually sent as html now so html tags in messages work...
-
+                                
                                 var box = document.getElementById("message_box");
                                 box.scrollTop = box.scrollHeight;
                             });
                         });
 
-                        window.onbeforeunload = function () {
-                            return 'This will disconnect you from the lobby!';
-                            //the message doesn't get displayed in most modern browsers. Only the default dialogue comes up.
+                        window.onbeforeunload = function() {
+                           return 'This will disconnect you from the lobby!';
+                           //the message doesn't get displayed in most modern browsers. Only the default dialogue comes up.
                         }
                     </script>
                 </div>

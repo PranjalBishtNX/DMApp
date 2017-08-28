@@ -5,7 +5,7 @@ var express = require('express')
 var bodyParser = require('body-parser');
 
 // use body parser to easy fetch post body
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
 
@@ -25,21 +25,22 @@ app.get('/', function (req, res) {
 
 //route that receives the post body, saves the username and redirects to lobby
 app.post('', function (req, res, next) {
-    validateusername(req.body, res);
+  validateusername(req.body, res);
 });
 
 function validateusername(parms, res) {
-    //get the parameters based on input name attribute from the html
-    //and parse string to variable
-    nick = parms.inputname;
-
-    if (nick in usernames) {
-        //this section is yet to be completed. If a username already is in use, an error message should be generated and redirected back to homepage
-        return res.redirect('/');
-    } else {
-        //directing to lobby
-        return res.redirect('/lobby');
+  //get the parameters based on input name attribute from the html
+  //and parse string to variable
+  nick = parms.inputname;
+   
+  if(nick in usernames){
+    //this section is yet to be completed. If a username already is in use, an error message should be generated and redirected back to homepage
+  return res.redirect('/');
     }
+    else{
+        //directing to lobby
+   return res.redirect('/lobby');
+}
 }
 
 
@@ -67,41 +68,44 @@ app.get('/duel', function (req, res) {
 });
 
 io.on('connection', function (socket) {
-
+    
     // when the client emits 'adduser', this listens and executes
-    socket.on('adduser', function (username) {
-        if (nick in usernames) {//this block is for assigning usernames if user enters through lobby url directly i.e from prompt
+    socket.on('adduser', function(username){
+         if (nick in usernames){//this block is for assigning usernames if user enters through lobby url directly i.e from prompt
             socket.username = username;
             usernames[username] = username;
-        } else { //this block assigns username from home page
-            // we store the username in the socket session for this client
-            socket.username = nick;
-            // add the client's username to the global list
-            usernames[nick] = nick;
+        }
+        else{ //this block assigns username from home page
+        // we store the username in the socket session for this client
+        socket.username = nick;
+        // add the client's username to the global list
+        usernames[nick] = nick;
         }
         // update the list of users in chat, client-side
         io.sockets.emit('updateusers', usernames);
         console.log('Client connected');
-
-        socket.broadcast.emit('chat message', {msg: socket.username + " joined the chat", user: socket.username});
+        
+        socket.broadcast.emit('chat message', {msg: socket.username+ " joined the chat", user:socket.username});
         //socket.emit('chat message', 'You are connected.');
     });
 
+    
+
     socket.on('disconnect', function () {
         // remove the username from global usernames list
-        socket.broadcast.emit('chat message', {msg: socket.username + " left the chat", user: socket.username});
+        socket.broadcast.emit('chat message', {msg: socket.username+ " left the chat", user:socket.username});
         delete usernames[socket.username];
         // update list of users in chat, client-side
         io.sockets.emit('updateusers', usernames);
 
         console.log('Client disconnected');
-
+        
         //socket.emit('chat message', 'You disconnected.');
     });
-
+    
 
     socket.on('chat message', function (data) {
-        io.emit('chat message', {msg: data, user: socket.username});
+        io.emit('chat message', {msg: data, user:socket.username});
     });
 });
 server.listen(process.env.PORT || 3000, function () {
