@@ -2,11 +2,26 @@
 <html>
 
     <head>
-        <title>DM App - Decks</title>
+        <title>DM App - Stats</title>
         <meta name="description" content="website description" />
         <meta name="keywords" content="website keywords, website keywords" />
         <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
         <link rel="stylesheet" type="text/css" href="/views/style/style.css" />
+        <style>
+            #profile{height:200px; border-bottom: 1px solid #CCC6B4;}
+            #profile_pic{height:90%; width:180px; border: 1px solid; float:left;}
+            #profile_info{float:right; width: calc( 100% - 200px ); height:90%; margin-bottom: 0; position: relative;}
+            #profile_info li{ list-style-type: none;}
+            #profile_info li:nth-child(odd) { background: #eee; }
+            li button{position:absolute; right:0;}
+            #profile_username{font-size: 2.5em;}
+            #profile_sig{font-size: 1.2em;}
+            #profile_email{height: 12%; line-height: 2;}
+            #profile_pass{width: 100%; position:absolute; bottom:0; background: #eee; line-height: 2; }
+            #profile_pass button{float:right;}
+
+            #statistics li:nth-child(odd) { background: #eee; }
+        </style>
     </head>
 
     <body>
@@ -31,11 +46,34 @@
             </div>
             <div id="content_header"></div>
             <div id="site_content">
-            
+                <div class="sidebar">
+                    <!-- insert your sidebar items here -->
+                    <h1>Statistics</h1>
+                    <b>
+                        <ul id="statistics">
+                            <li> Total duels: 100 </li>
+                            <li> Duels completed: 90% </li>
+                            <li> Duels won: 55% </li>
+                            <li> Valid decks: 15 </li>
+                        </ul>
+                    </b>
+                </div>
                 <div id="content">
-                    <!-- insert the page content here -->
-                    <h1>Stats/Account info goes here.</h1>
-                
+                    <!------------------------------------- insert the page content here ------------------------------------------------->
+                    <h1>Profile Info</h1>
+                    <div id="profile">
+                        <div id ="profile_pic">
+                            <button id="profile_pic_edit">Edit</button>
+                            Profile Pic
+                        </div>
+                        <ul id="profile_info" >
+                            <li id="profile_username">Username</li>
+                            <li id="profile_sig">Edgy signature text<button id="edit_sig">Edit</button></li> <!--need a max char limit on this -->
+                            <li id="profile_email">e-mail@somewebsite.com<button id="edit_email">Edit</button> </li>
+                            <div id="profile_pass">Change password:<button id="edit_pass">Edit</button></div>
+                    </div>
+                    <br/>
+
                 </div>
             </div>
             <div id="content_footer"></div>
