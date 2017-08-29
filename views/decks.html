@@ -8,11 +8,11 @@
         <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
         <link rel="stylesheet" type="text/css" href="/views/style/style.css" />
         <style>
-            #deck_builder{height:500px; margin-bottom: 10px;overflow:auto;outline:2px solid; outline-offset:-2px;}
+            #deck_builder{height:500px; margin-bottom: 10px;overflow:auto;outline:2px solid; outline-offset:-2px; }
             #deck_builder > div{ outline:1px solid; outline-offset:-1px; float:left}          
 
             #button_column{height:100%; width:105px ; float:top; position:relative;}
-            #button_column button{width:85px; height: 40px; margin: 10px 10px 0 10px; }
+            #button_column>button, #button_column2>button{width:85px; height: 40px; margin: 10px 10px 0 10px; }
             #button_column #save_and_play{width:85px; height: 65px; margin: 0px 10px 10px 10px; position:absolute; bottom:0;}
 
             #deck{height:100%; width:320px; display:flex; flex-flow: column;}
@@ -22,10 +22,14 @@
             #deck_tab button {background-color: #ccc; cursor: pointer; padding: 5px 5px; transition: 0.2s; border: 1px solid; border-bottom: 0px; border-radius: 5px 5px 0 0; margin:0;}
             #deck_tab button:hover {background-color: #eee;}
             #deck_tab button.active{background-color: #f5f4f0;border-bottom:1px solid  #f5f4f0; margin-bottom:-1px}
-            #hsp_deck{display:none;}
+            #hsp_deck{display:none; resize:both}
 
             #card_search{height:100%; width:450px;  display:flex; flex-flow: column;}
-
+            #card_search div{outline:1px solid; outline-offset:-1px;}
+            #search_params{height:30%;}
+            #search_bottom{flex-grow:1; position:relative}
+            #button_column2{width:105px; height:100%; position:absolute}
+            #search_results{width:345px; height:100%;position:absolute; right:0;}
             #card_details{height:350px; border: 1px solid #808080; margin-bottom: 10px;}
         </style>
     </head>
@@ -75,7 +79,16 @@
                         </div>
                     </div>
 
-                    <div id="card_search"></div>
+                    <div id="card_search">
+                        <div id="search_params">Search parameters</div>
+                        <div id="search_bottom">
+                            <div id="button_column2">
+                                <button>Add</button>
+                                <button>Remove</button>                                
+                            </div>
+                            <div id="search_results"></div>
+                        </div>
+                    </div>
                 </div>
                 <div id="card_details">
 
