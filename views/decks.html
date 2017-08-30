@@ -26,15 +26,20 @@
 
             #card_search{height:100%; width:450px;  display:flex; flex-flow: column;}
             #card_search div{outline:1px solid; outline-offset:-1px;}
-            #search_params{height:30%;}
+            #search_params{height:30%; padding:5px 10px;}
+            #basic_search{line-height: 230%;}
+            #basic_search > input{vertical-align: middle;}
+
+
+
             #search_bottom{flex-grow:1; position:relative}
             #button_column2{width:105px; height:100%; position:absolute}
             #search_results{width:345px; height:100%;position:absolute; right:0;}
             #card_details{height:350px; border: 1px solid #808080; margin-bottom: 10px;}
 
             .card_list{margin:0; font-size: 14px }
-            .card_list > li{list-style-type: none; border-bottom:1px solid;margin:0;}
-            .card_list > .list_active{background:#cdf; width: calc( 100% - 2px );} /*100% width means bg covers the top div outline*/
+            .card_list > li{list-style-type: none; border-bottom:1px solid;margin:0; padding-left:2px;}
+            .card_list > .list_active{background:#cdf; width: calc( 100% - 4px );} /*100% width means bg covers the top div outline*/
         </style>
     </head>
 
@@ -97,9 +102,64 @@
                             </div>
                         </div>
                     </div>
-
                     <div id="card_search">
-                        <div id="search_params">Search parameters</div>
+                        <!------------------------------------CARD SEARCH PARAMETERS------------------------------------------->
+
+                        <div id="search_params">
+                            <form action="#" id="basic_search"> 
+                                <b>Name:&nbsp<input type="text" name="card_name" style="width:167px"/>
+                                    &nbsp Race:&nbsp<input type="text" name="race" style="width:150px"/>
+                                    Cost:&nbsp<select name="cost_modifier">
+                                        <option value="equals">=</option>
+                                        <option value="more_than">></option>
+                                        <option value="less_than"><</option>
+                                    </select>                                 
+                                    <input type="number" name="cost" min="0" style="width:40px;"/>
+                                    &nbspPower:&nbsp<input type="number" name="power" min="0" style="width:65px;">
+                                    &nbspType:&nbsp
+                                    <select name="type" style="width:120px">
+                                        <option value="1">Creature</option>
+                                        <option value="2">Spell</option>
+                                        <option value="3">Evolution Creature</option>
+                                        <option value="4">Cross Gear</option>
+                                        <option value="6">Fortress</option>
+                                        <option value="7">Psychic Creature</option>
+                                    </select>  
+
+                                    Civilization:</b>                         
+                                <input type="checkbox" name="civ_dark" value="dark">Darkness &nbsp
+                                <input type="checkbox" name="civ_fire" value="Fire">Fire &nbsp
+                                <input type="checkbox" name="civ_light" value="Light">Light &nbsp
+                                <input type="checkbox" name="civ_nature" value="Nature">Nature &nbsp
+                                <input type="checkbox" name="civ_water" value="Water">Water &nbsp
+                                <b>Rules Text: </b>
+                                <div id="lastParams" style="margin-top:-7px; position: relative; outline: 0;">
+                                    <textarea name="rules" rows="2" cols="47" style="resize:none; height:35px"></textarea>
+                                 <!--   <input type="reset" style="position: absolute; top:0; right:0; width:60px">  -->
+                                    <input type="submit" name="lol" value="Search" formAction="#" style="position: absolute; right:0; bottom:10px; width:60px" />
+                                </div>
+                            </form>
+                            <!-------------------------------ADVANCED SEARCH--------------------------------->
+                            <form id="advanced_search" style="display:none">
+                                Set:&nbsp
+                                <select name="set" style="width:185px">
+                                    <option value="1">DM-01 LOL Set</option>
+                                    <option value="2">DM-02 LMAO Set</option>
+                                    <option value="3">DM-03 HUH Set</option>
+                                </select>        
+                                &nbsp Rarity:&nbsp
+                                <select name="rarity" style="width:85px">
+                                    <option value="1">Common</option>
+                                    <option value="2">Uncommon</option>
+                                    <option value="3">Rare</option>
+                                    <option value="3">Very Rare</option>
+                                    <option value="3">Super Rare</option>
+                                    <option value="3">Victory Rare</option>
+
+                                </select>        
+                            </form>
+                        </div>
+                        <!------------------------------------END OF CARD SEARCH PARAMETERS --------------------------------->      
                         <div id="search_bottom">
                             <div id="button_column2">
                                 <button>Add</button>
