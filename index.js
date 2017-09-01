@@ -15,33 +15,14 @@ var usernames = {};
 //name entered in homepage to be set in this global variable
 var nick;
 
+var msgHistory = ["NoMsg"]; //array to store history messages
+var mh_index = 0;
+var mh_size = 10; //size of message history
 
-app.use('/views', express.static(__dirname + '/views'));
-
+//////////////////////// All mapping for addresses and static resources ///////////////////
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/views/index.html');
 });
-
-
-//route that receives the post body, saves the username and redirects to lobby
-app.post('', function (req, res, next) {
-    validateusername(req.body, res);
-});
-
-function validateusername(parms, res) {
-    //get the parameters based on input name attribute from the html
-    //and parse string to variable
-    nick = parms.inputname;
-
-    if (nick in usernames) {
-        //this section is yet to be completed. If a username already is in use, an error message should be generated and redirected back to homepage
-        return res.redirect('/');
-    } else {
-        //directing to lobby
-        return res.redirect('/lobby');
-    }
-}
-
 
 app.get('/login', function (req, res) {
     //login controllers go here
@@ -66,6 +47,30 @@ app.get('/duel', function (req, res) {
     res.sendFile(__dirname + '/views/duel.html');
 });
 
+app.use('/views', express.static(__dirname + '/views'));
+
+
+////////////////////////////////////////Path mapping done////////////////////////////////////////
+
+//route that receives the post body, saves the username and redirects to lobby
+app.post('', function (req, res, next) {
+    validateusername(req.body, res);
+});
+
+function validateusername(parms, res) {
+    //get the parameters based on input name attribute from the html
+    //and parse string to variable
+    nick = parms.inputname;
+
+    if (nick in usernames) {
+        //this section is yet to be completed. If a username already is in use, an error message should be generated and redirected back to homepage
+        return res.redirect('/');
+    } else {
+        //directing to lobby
+        return res.redirect('/lobby');
+    }
+}
+
 io.on('connection', function (socket) {
 
     // when the client emits 'adduser', this listens and executes
@@ -81,20 +86,39 @@ io.on('connection', function (socket) {
         }
         // update the list of users in chat, client-side
         io.sockets.emit('updateusers', usernames);
-        console.log('Client connected');
 
-        socket.broadcast.emit('chat message', {msg: socket.username + " joined the chat", user: socket.username});
-        //socket.emit('chat message', 'You are connected.');
+
+
+        //console.log("\nHistory is:");  //for testing
+        for (i = 0; i < msgHistory.length; i++)
+        {
+            var msg=msgHistory[(i + mh_index) % msgHistory.length]; //circular traversal from mh_index to the latest message
+            //console.log(msg);  //for testing
+            socket.emit('history message', msg);  //only for self, the user that just connected
+        }  
+        
+
+
+        socket.emit('connect message');  //for self
+        socket.broadcast.emit('connect message', socket.username); //for other users
+
+
+        msgHistory[(mh_index++) % mh_size] = "*" + socket.username + " joined the chat.*";  //adding to message history, * signifies a connection or disconnection message  
+        console.log('\nClient connected');
+
     });
 
     socket.on('disconnect', function () {
         // remove the username from global usernames list
         socket.broadcast.emit('chat message', {msg: socket.username + " left the chat", user: socket.username});
+
+
         delete usernames[socket.username];
         // update list of users in chat, client-side
         io.sockets.emit('updateusers', usernames);
 
-        console.log('Client disconnected');
+        msgHistory[(mh_index++) % mh_size] = "*" + socket.username + " left the chat*"; //recording disconnect to history, * means a connection or disconnection message
+        console.log('\nClient disconnected');
 
         //socket.emit('chat message', 'You disconnected.');
     });
@@ -102,6 +126,7 @@ io.on('connection', function (socket) {
 
     socket.on('chat message', function (data) {
         io.emit('chat message', {msg: data, user: socket.username});
+        msgHistory[(mh_index++) % mh_size] = socket.username + ": " + data;  //Recording chant message into history
     });
 });
 server.listen(process.env.PORT || 3000, function () {

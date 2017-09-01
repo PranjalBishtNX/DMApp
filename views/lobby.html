@@ -67,10 +67,7 @@
                         // on connection to server, ask for user's name with an anonymous callback
                         socket.on('connect', function () {
                             // call the server-side function 'adduser' and send one parameter (value of prompt)
-                            //  if (currentuser === undefined)  //if there is no username //doesn't work, currentuser is not the var we want. That is with index.js     
                             socket.emit('adduser', prompt("If you have already entered a name in home page, ignore this. if not, please enter a Username"));
-                            //    else
-                            //              socket.emit('adduser'); //if username was already entered on homepage
                         });
 
                         // listener, whenever the server emits 'updateusers', this updates the username list
@@ -95,16 +92,22 @@
                                     $('#messages').append($('<li>').html("<b>" + data.user + ": </b>" + data.msg));
                                 //changed it so that it appears in a single line, now the alternating li color works - will need alignment later
                                 //crap, the messages are actually sent as html now so html tags in messages work...
-
                                 var box = document.getElementById("message_box");
                                 box.scrollTop = box.scrollHeight;
                             });
+                            socket.on('connect message', function (args) {
+                                if (args == null)
+                                    $('#messages').append($("<li class='conn_msg'>").html("You are connected"));
+                                else
+                                $('#messages').append($("<li class='conn_msg'>").html(args + " has joined the chat"));
+                            });
+                            
+                            socket.on('history message', function (msg) {
+                                $('#messages').append($("<li >").html(msg));
+                            });
                         });
 
-                        window.onbeforeunload = function () {
-                            return 'This will disconnect you from the lobby!';
-                            //the message doesn't get displayed in most modern browsers. Only the default dialogue comes up.
-                        }
+
                     </script>
                 </div>
             </div>
