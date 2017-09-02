@@ -15,6 +15,7 @@
             #messages li { padding: 5px 10px; }
             #messages li:nth-child(odd) { background: #eee; }
             #messages { margin-bottom: 40px }
+            #messages .conn_msg { color: #0d7;}
         </style>
     </head>
 
@@ -100,6 +101,9 @@
                                     $('#messages').append($("<li class='conn_msg'>").html("You are connected"));
                                 else
                                 $('#messages').append($("<li class='conn_msg'>").html(args + " has joined the chat"));
+                            });
+                            socket.on('disconn message', function (user) {                              
+                                $('#messages').append($("<li class='conn_msg'>").html(user + " has left the chat"));
                             });
                             
                             socket.on('history message', function (msg) {
