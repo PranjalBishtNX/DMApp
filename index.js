@@ -17,7 +17,7 @@ var nick;
 
 var msgHistory = ["NoMsg"]; //array to store history messages
 var mh_index = 0;
-var mh_size = 10; //size of message history
+var mh_size = 12; //size of message history
 
 //////////////////////// All mapping for addresses and static resources ///////////////////
 app.get('/', function (req, res) {
