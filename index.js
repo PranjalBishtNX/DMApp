@@ -4,8 +4,8 @@ var http = require('http');
 var path = require('path');
 var socketIO = require('socket.io');
 var app = express();
-var server = http.createServer(app);
-var io = socketIO.listen(server);
+var server = http.Server(app);
+var io = socketIO(server);
 app.set('port', 8080);
 app.use('/static', express.static(__dirname + '/static'));
 // Routing
