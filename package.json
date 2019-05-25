@@ -1,14 +1,13 @@
 {
-  "name": "duelmasters",
-  "version": "1.0.0",
-  "description": "kakakaka",  
-  "author": "",
+  "name": "DMApp",
+  "version": "0.0.1",
+  "description": "DM APP - DM Online",
   "dependencies": {
-    "express": "^4.17.0",
-    "git": "^0.1.5",
-    "socket.io": "^2.2.0"
+    "body-parser": "^1.17.2",
+    "express": "4.15.4",
+    "socket.io": "1.7.4"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   }
 }
